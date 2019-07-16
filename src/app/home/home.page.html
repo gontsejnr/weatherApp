@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+        <ion-icon src="assets/day.svg"></ion-icon> WEATHER
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+    <ion-card >
+        <ion-card-header>
+          <ion-card-title>{{name}}</ion-card-title>
+          <ion-card-subtitle *ngFor="let value of weatherData"> {{value.weather[0].description}}  <br>
+            <ion-avatar>
+                   <img src="http://openweathermap.org/img/w/{{value.weather[0].icon}}.png">
+            </ion-avatar>
+          </ion-card-subtitle>
+          <!-- {{date | date: 'EEEE'}} {{date | date: 'dd'}}-{{date | date:'MM'}}-{{date | date: 'yyyy'}} {{ date | date : 'h:mm:ss'}} -->
+          <ion-card-title *ngFor="let value of weatherData"> {{value.main.temp | number:'1.0-0'}}&deg;C</ion-card-title>
+          <ion-card-subtitle> {{date | date: 'EEEE'}} </ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content >
+            <p *ngFor="let value of weatherData">Today: Mostly {{value.weather[0].main}} currently. The max will be {{value.main.temp_max | number:'1.0-0'}}&deg;. Clear tonight with a
+              min of {{value.main.temp_min | number:'1.0-0'}}&deg;.
+            </p>
+        </ion-card-content>
+      </ion-card>
+      
+
+</ion-content>
