@@ -1,1 +1,21 @@
+.center{
+    text-align: center;
+}
+.image{
+    margin-left: auto;
+    margin-right: auto;
+}
 
+ion-content {
+    --background: none;
+    background-image: url('https://images.pexels.com/photos/2443865/pexels-photo-2443865.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+ion-card-content,
+ion-card
+{
+    --background:none;
+    background-color: white;
+}

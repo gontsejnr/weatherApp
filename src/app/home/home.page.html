@@ -1,32 +1,122 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-        <ion-icon src="assets/day.svg"></ion-icon> WEATHER
+         WEATHER<ion-icon src="assets/day.svg"></ion-icon>FORECAST
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
- 
+<ion-content class="center">
+ <br>
+ <!-- Default Searchbar -->
+<ion-searchbar  [(ngModel)]="city" (click)="searchCity()"></ion-searchbar>
+
+
     <ion-card >
         <ion-card-header>
-          <ion-card-title>{{name}}</ion-card-title>
-          <ion-card-subtitle *ngFor="let value of weatherData"> {{value.weather[0].description}}  <br>
-            <ion-avatar>
-                   <img src="http://openweathermap.org/img/w/{{value.weather[0].icon}}.png">
+          <ion-card-title> {{name}}</ion-card-title>
+          <ion-card-subtitle> {{values?.list[0].weather[0].main}}  <br>
+            <ion-avatar class="image">
+                   <img src="http://openweathermap.org/img/w/{{values?.list[0].weather[0].icon}}.png">
             </ion-avatar>
           </ion-card-subtitle>
           <!-- {{date | date: 'EEEE'}} {{date | date: 'dd'}}-{{date | date:'MM'}}-{{date | date: 'yyyy'}} {{ date | date : 'h:mm:ss'}} -->
-          <ion-card-title *ngFor="let value of weatherData"> {{value.main.temp | number:'1.0-0'}}&deg;C</ion-card-title>
-          <ion-card-subtitle> {{date | date: 'EEEE'}} </ion-card-subtitle>
+          <ion-card-title> {{values?.list[0].main.temp | number:'1.0-0'}}&deg;C</ion-card-title>
+          <ion-card-subtitle> {{date | date: 'EEEE'}} <i>{{txt}}</i> </ion-card-subtitle>
+          <br>
+          <ion-row style="align-items: center;">
+              <ion-col size="2">
+                {{values?.list[8].main.humidity}}%
+              </ion-col>
+              <ion-col size="2">
+                  {{values?.list[8].wind.speed}}
+              </ion-col>
+              <ion-col size="2">
+                  {{values?.list[8].main.pressure}}hPa
+              </ion-col>
+            </ion-row>
+
         </ion-card-header>
-      
-        <ion-card-content >
-            <p *ngFor="let value of weatherData">Today: Mostly {{value.weather[0].main}} currently. The max will be {{value.main.temp_max | number:'1.0-0'}}&deg;. Clear tonight with a
-              min of {{value.main.temp_min | number:'1.0-0'}}&deg;.
-            </p>
+
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle><i>Today: {{values?.list[0].weather[0].description}} currently. The high will be {{values?.list[0].main.temp_max | number:'1.0-0'}}&deg;. Clear tonight with a
+            low of {{values?.list[0].main.temp_min | number:'1.0-0'}}&deg;.</i>
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <!-- day1 -->
+          <ion-row style="align-items: center;">
+            <ion-col size="3">
+              {{values?.list[8].dt_txt | date : 'EEEE'}}
+            </ion-col>
+            <ion-col size="3">
+              <ion-avatar class="image">
+                <img src="http://openweathermap.org/img/w/{{values?.list[8].weather[0].icon}}.png">
+         </ion-avatar>
+            </ion-col>
+            <ion-col size="3">
+              {{values?.list[8].main.temp | number:'1.0-0'}}&deg;
+            </ion-col>
+            <ion-col size="3">
+                {{values?.list[15].main.temp_min | number:'1.0-0'}}&deg;
+              </ion-col>
+          </ion-row>
+          <!-- day2 -->
+          <ion-row style="align-items: center;">
+            <ion-col size="3">
+              {{values?.list[16].dt_txt | date : 'EEEE'}}
+            </ion-col>
+            <ion-col size="3">
+              <ion-avatar class="image">
+                <img src="http://openweathermap.org/img/w/{{values?.list[16].weather[0].icon}}.png">
+         </ion-avatar>
+            </ion-col>
+            <ion-col size="3">
+              {{values?.list[16].main.temp | number:'1.0-0'}}&deg;
+            </ion-col>
+            <ion-col size="3">
+                {{values?.list[23].main.temp_min | number:'1.0-0'}}&deg;
+              </ion-col>
+          </ion-row>
+          <!-- day3 -->
+          <ion-row style="align-items: center;">
+              <ion-col size="3">
+                {{values?.list[24].dt_txt | date : 'EEEE'}}
+              </ion-col>
+              <ion-col size="3">
+                <ion-avatar class="image">
+                  <img src="http://openweathermap.org/img/w/{{values?.list[24].weather[0].icon}}.png">
+           </ion-avatar>
+              </ion-col>
+              <ion-col size="3">
+                {{values?.list[24].main.temp | number:'1.0-0'}}&deg;
+              </ion-col>
+              <ion-col size="3">
+                  {{values?.list[31].main.temp_min | number:'1.0-0'}}&deg;
+                </ion-col>
+            </ion-row>
+            <!-- day4 -->
+            <ion-row style="align-items: center;">
+                <ion-col size="3">
+                  {{values?.list[32].dt_txt | date : 'EEEE'}}
+                </ion-col>
+                <ion-col size="3">
+                  <ion-avatar class="image">
+                    <img src="http://openweathermap.org/img/w/{{values?.list[32].weather[0].icon}}.png">
+             </ion-avatar>
+                </ion-col>
+                <ion-col size="3">
+                  {{values?.list[32].main.temp | number:'1.0-0'}}&deg;
+                </ion-col>
+                <ion-col size="3">
+                    {{values?.list[39].main.temp_min | number:'1.0-0'}}&deg;
+                  </ion-col>
+              </ion-row>
+          
         </ion-card-content>
       </ion-card>
       
-
 </ion-content>

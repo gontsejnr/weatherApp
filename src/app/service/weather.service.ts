@@ -14,7 +14,7 @@ export class WeatherService {
 
   getWeather(city){
 
-    return this.http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&cnt=1&APPID=' + this.appid);
+    return this.http.get('http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=metric&APPID=' + this.appid);
 
   }
 }
