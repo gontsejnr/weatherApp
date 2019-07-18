@@ -25,14 +25,14 @@
           <ion-card-subtitle> {{date | date: 'EEEE'}} <i>{{txt}}</i> </ion-card-subtitle>
           <br>
           <ion-row style="align-items: center;">
-              <ion-col size="2">
-                {{values?.list[8].main.humidity}}%
+              <ion-col size="4">
+                <p><i>Humidity: </i></p>{{values?.list[8].main.humidity}}%
               </ion-col>
-              <ion-col size="2">
-                  {{values?.list[8].wind.speed}}
+              <ion-col size="4">
+                <p><i>Wind: </i></p>{{values?.list[8].wind.speed}}
               </ion-col>
-              <ion-col size="2">
-                  {{values?.list[8].main.pressure}}hPa
+              <ion-col size="4">
+                <p><i>Pressure: </i></p>{{values?.list[8].main.pressure}}hPa
               </ion-col>
             </ion-row>
 
@@ -42,8 +42,8 @@
 
       <ion-card>
         <ion-card-header>
-          <ion-card-subtitle><i>Today: {{values?.list[0].weather[0].description}} currently. The high will be {{values?.list[0].main.temp_max | number:'1.0-0'}}&deg;. Clear tonight with a
-            low of {{values?.list[0].main.temp_min | number:'1.0-0'}}&deg;.</i>
+          <ion-card-subtitle><i>Today: {{values?.list[0].weather[0].description}} currently. The max will be {{values?.list[0].main.temp_max | number:'1.0-0'}}&deg;. Clear tonight with a
+            min of {{values?.list[0].main.temp_min | number:'1.0-0'}}&deg;.</i>
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
